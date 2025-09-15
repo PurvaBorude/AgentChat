@@ -1,0 +1,29 @@
+.chat-page {
+    /* Set display to flex to enable flexbox layout */
+    display: flex;
+    
+    /* Make the container a column to stack items vertically */
+    flex-direction: column;
+    
+    /* Center all items horizontally */
+    align-items: center;
+    
+    /* Make the container fill the full height and width of the viewport */
+    height: 100vh;
+    width: 100vw;
+    
+    /* Remove default body margin and padding for a clean layout */
+    margin: 0;
+    padding: 0;
+    
+    /* Example styling for the background */
+    background-color: #f0f2f5;
+
+    justify-content: center; /* This centers the children horizontally */
+    align-items: center; /* This centers the children vertically */
+}
+
+h3 {
+    color: #000000;
+    font-family: Arial, sans-serif;
+}

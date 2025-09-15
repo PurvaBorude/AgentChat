@@ -1,0 +1,231 @@
+.chat-window {
+  width: 90%;
+  max-width: 900px;        /* cap it so it doesn’t stretch too much on large monitors */
+  min-width: 300px;        /* safe minimum */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #ece5dd; /* WhatsApp-like background */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Header */
+.chat-window h3 {
+  margin: 0;
+  padding: 12px;
+  background: #075e54;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Messages container */
+.messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Generic message bubble */
+.my-message,
+.other-message {
+  max-width: 70%;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 7.5px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  word-wrap: break-word;
+}
+
+/* Sent by me (right side, green) */
+.my-message {
+  align-self: flex-end;
+  background: #99ca73;
+  border-bottom-right-radius: 0;
+}
+
+/* Received (left side, white) */
+.other-message {
+  align-self: flex-start;
+  background: #8f8686;
+  border-bottom-left-radius: 0;
+}
+
+/* Message sender bold */
+.my-message strong,
+.other-message strong {
+  font-weight: 600;
+  margin-right: 4px;
+  font-size: 13px;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  font-size: 12px;
+  color: #666;
+  margin: 5px 15px;
+  font-style: italic;
+}
+
+/* Input area */
+.chat-input-form {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #c1db97;
+}
+
+.chat-input-form input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input-form button {
+  margin-left: 8px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50%;
+  background: #128c7e;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease-in-out;
+}
+
+.chat-input-form button:hover {
+  background: #0d6b62;
+}
+
+/* File upload & leave buttons */
+.chat-window button {
+  background: #128c7e;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.chat-window button:disabled {
+  background: #075e54;
+  cursor: not-allowed;
+}
+
+.chat-window button:hover:enabled {
+  background: #0d6b62;
+}
+
+/* File input */
+
+.chat-file-input {
+  font-size: 14px;
+  color: #444;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-file-input::file-selector-button {
+  background: #128c7e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.chat-file-input::file-selector-button:hover {
+  background: #0d6b62;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chat-window h3 {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .my-message,
+  .other-message {
+    max-width: 85%;
+    font-size: 13px;
+  }
+
+  .chat-input-form input[type="text"] {
+    font-size: 13px;
+  }
+
+  .chat-input-form button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* Desktop / Laptop view */
+@media (min-width: 1024px) {
+  .chat-window {
+    max-width: 1200px;
+    height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* messages take remaining space*/
+  .messages {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-input-form {
+    padding: 15px 20px;
+  }
+
+  .chat-input-form input[type="text"] {
+    font-size: 15px;
+  }
+
+  .chat-input-form button {
+    font-size: 16px;
+  }
+}
+
+/* On small devices, let it take full width */
+@media (max-width: 600px) {
+  .chat-window {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0; /* optional: remove rounding for full screen look */
+    height: 100vh;    /* optional: fit full height */
+  }
+}
+
+/* Everything after messages gets pushed down */
+.chat-input-form,
+.chat-file-input,
+.chat-window > button {
+  margin-top: auto;
+}

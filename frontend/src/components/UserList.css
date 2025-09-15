@@ -1,0 +1,111 @@
+/* UserList.css */
+.user-list {
+  width: 100vw;
+  height: 80vh;
+  background: linear-gradient(-45deg, #fdfdf5, #e8f0fe, #fef9f3, #f0f5fd);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  /* items stack from the top */
+  align-items: center;       
+
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  overflow-y: auto;
+  flex: 1; 
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Heading */
+.user-list h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+  animation: fadeInUp 1s forwards;
+}
+
+/* User list */
+.user-list ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;  
+}
+
+/* Each user row */
+.user-list ul li {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect on row */
+.user-list ul li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+.user-list ul li button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.user-list ul li button:hover {
+  background-color: #357ab7;
+  transform: translateY(-1px);
+}
+
+.user-list ul li button:disabled {
+  background-color: #a0c0e5;
+  cursor: not-allowed;
+}
+
+/* Invite notice */
+.user-list .invite-notice {
+  margin-top: 20px;
+  padding: 12px 15px;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

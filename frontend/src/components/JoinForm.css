@@ -1,0 +1,95 @@
+/* Reset page so nothing pushes content left */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;  /* horizontal center */
+  align-items: center;      /* vertical center */
+  background: #1e1e1e;      /* optional dark bg like your screenshot */
+  box-sizing: border-box;
+}
+
+.join-form-container {
+  width: 100%;
+  max-width: 420px;   /* ✅ scales for big screens */
+  padding: 1.5rem;
+  text-align: center;
+  background: transparent;  /* remove background blockiness */
+  box-sizing: border-box;
+}
+
+.join-form-container h1 {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  margin-bottom: 0.5rem;
+  color: #fff;  /* contrast on dark bg */
+}
+
+.join-form-container h2 {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+.join-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.join-form-container input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.join-form-container button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+.join-form-container button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.suggestions {
+  margin-top: 1rem;
+}
+
+.suggestions ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.suggestions button {
+  background: #f3f4f6;
+  border: 1px solid #ccc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.suggestions button {
+  background: #3d67b9;
+}
