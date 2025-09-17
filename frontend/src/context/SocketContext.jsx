@@ -25,12 +25,17 @@ export function SocketProvider({ children }) {
 
   // Initialize socket
   useEffect(() => {
-    const newSocket = io("http://localhost:5000", { autoConnect: false });
-    socketRef.current = newSocket;
-    setSocket(newSocket);
+  const newSocket = io(import.meta.env.VITE_BACKEND_URL, {
+    autoConnect: false,
+    transports: ["websocket"], // ensures it works on Render
+  });
+  socketRef.current = newSocket;
+  setSocket(newSocket);
 
-    return () => newSocket.disconnect();
-  }, []);
+  return () => newSocket.disconnect();
+}, []);
+
+
 
   // Core socket listeners
   useEffect(() => {
